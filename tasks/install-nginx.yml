@@ -1,0 +1,24 @@
+- name: Install libselinux-python.
+  package: name="libselinux-python" state="present"
+
+
+- name: Copy the nginx.repo
+  copy: src=nginx.repo  dest=/etc/yum.repos.d/nginx.repo
+
+
+- name: Install nginx
+  package: name="nginx-{{ version }}" state="present"
+
+
+- name: Create nginx configuration directories
+  file: path=/etc/nginx/{{ item }} state=directory owner=root group=root mode=0755
+  with_items:
+    - "sites-enabled"
+
+
+- name: Copy the nginx.conf and reload it.
+  template: src=nginx.conf  dest=/etc/nginx/nginx.conf
+  notify:
+   - start nginx
+   - reload nginx
+  tags: reload

@@ -1,0 +1,14 @@
+galaxy_info:
+  author: cupen
+  description: "Install nginx from official release."
+  company: freer
+  license: WTFPL
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+     - 6
+     - 7
+  galaxy_tags: []
+
+dependencies: []

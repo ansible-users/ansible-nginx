@@ -1,0 +1,7 @@
+---
+
+- include: install-nginx.yml
+  static: no
+  # when: nginx.stat.exists == False or nginx.stat.executable == False
+
+- service: name=nginx enabled=yes state=started

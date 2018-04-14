@@ -1,0 +1,6 @@
+---
+- hosts: "{{ host }}"
+  remote_user: cupen
+  roles:
+  - { role: ../nginx, version: "1.12.2" }
+  
