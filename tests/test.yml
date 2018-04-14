@@ -1,6 +1,9 @@
 ---
 - hosts: "{{ host }}"
   remote_user: cupen
+  vars:
+    nginx_http_params:
+      gzip: on
   roles:
-  - { role: ../nginx, version: "1.12.2" }
+  - { role: ../ansible-nginx, version: "1.12.2" }
   

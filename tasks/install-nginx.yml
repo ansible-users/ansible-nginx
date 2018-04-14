@@ -1,5 +1,6 @@
 - name: Install libselinux-python.
   package: name="libselinux-python" state="present"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 
 - name: Copy the nginx.repo
